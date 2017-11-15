@@ -1,0 +1,66 @@
+{{template "../layouts/main.html" .}}
+{{define "head"}}
+<title>welcome</title>
+{{end}}
+{{define "body"}}
+<div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div id="panel" class="panel panel-default">
+	  		<div class="panel-heading" id="panel-heading"><h3 class="panel-title text-center">
+		  		<strong>{{ .heading }}</strong></h3>
+			</div>
+			<div class="panel-body" id="panel-body">
+			    <div class="row">
+			        <div class="col-xs-12 text-center">
+			          <p id="sucess_msg" style="display:none;"></p>
+			        </div>
+			    </div>
+			    <div class="row">
+			   		<div class="col-xs-12">
+						<form method="post" action="/add-products" class="form-horizontal">
+				            <div class="form-group">
+				              <label class="col-sm-2 col-sm-offset-2 control-label" for="title">Title: </label>
+				              <div class="col-sm-4">
+				                <input name="title" type="text" placeholder="" class="input-sm form-control">
+				              </div>
+				            </div>
+				            <div class="form-group">
+				              <label class="col-sm-2 col-sm-offset-2 control-label" for="description">Description: </label>
+				              <div class="col-sm-4">
+				                <input name="description" type="text" placeholder="" class="input-sm form-control">
+				              </div>
+				            </div>
+				            <div class="form-group">
+				              <label class="col-sm-2 col-sm-offset-2 control-label" for="image">Image: </label>
+				              <div class="col-sm-4">
+				                <input name="image" type="text" placeholder="" class="input-sm form-control">
+				              </div>
+				            </div>
+				            <div class="form-group">
+				              <label class="col-sm-2 col-sm-offset-2 control-label" for="price">Price: </label>
+				              <div class="col-sm-4">
+				                <input name="price" type="text" placeholder="" class="input-sm form-control">
+				              </div>
+				            </div>
+				            <div class="form-group">
+				              <label class="col-sm-2 col-sm-offset-2 control-label" for="stock">Stock: </label>
+				              <div class="col-sm-4">
+				                <input name="stock" type="text" placeholder="" class="input-sm form-control">
+				              </div>
+				            </div>
+				            <div class="form-group">
+				              <div class="col-sm-7 col-sm-offset-5">
+				                <button id="btn" type="submit" class="btn btn-success btn-save">Upload</button>
+				              </div>
+				            </div>
+						</form>	
+					</div>
+			    </div>
+			</div>
+					
+        </div>
+      </div>
+	</div>
+</div>
+{{end}}

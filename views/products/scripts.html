@@ -1,0 +1,23 @@
+<script>
+	$('.add_to_cart a.dropdown-item').on('click', function(e){
+        var $obj = $(this);
+        console.log($(this).text());
+        console.log($(this).closest('.add_to_cart').attr('data-id'));
+        console.log($(this).closest('.add_to_cart').attr('data-price'));
+        $.ajax({
+            type: "POST",
+            url: "/add-to-cart",
+            data: { qty: $(this).text(),product_id:$(this).closest('.add_to_cart').attr('data-id'),price:Number($(this).text())*Number($(this).closest('.add_to_cart').attr('data-price'))}
+        }).done(function( res ) {
+        if(res.Message == "success"){
+            var text = res.Qty+" qty added to <a href='/cart' target='_blank'>cart</a>"
+            $($obj).closest(".products_dropdown").hide();
+            $($obj).closest(".thumbnail").find(".cart_added").show();
+            $($obj).closest(".thumbnail").find(".cart_added").html(text);
+
+            console.log(res);
+        }      
+           console.log(res);
+        });
+    });
+</script>

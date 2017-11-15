@@ -1,0 +1,57 @@
+{{template "../layouts/main.html" .}}
+{{define "head"}}
+<title>welcome</title>
+{{end}}
+{{define "body"}}
+<div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div id="panel" class="panel panel-default">
+	  		<div class="panel-heading" id="panel-heading"><h3 class="panel-title text-center">
+		  		<strong>{{ .heading }}</strong></h3>
+			</div>
+			<div class="panel-body" id="panel-body">
+			    <div class="row">
+			        <div class="col-xs-12 text-center">
+			          <p id="sucess_msg" style="display:none;"></p>
+			        </div>
+			    </div>
+			    <div class="row">
+			   		<div class="col-xs-12">
+			   			<button id="btn" type="submit" class="btn btn-success btn-save pull-right">Proceed checkout</button>
+						<table class="table table-striped">
+						    <thead>
+						      <tr>
+						        <th class="text-center">Item</th>
+						        <th class="text-center">price</th>
+						        <th class="text-center">Qty</th>
+						        <th class="text-center">Total price</th>
+						        <th class="text-center">image</th>
+						        <th class="text-center">Date</th>
+						        <th class="text-center">remove</th>
+						      </tr>
+						    </thead>
+						    <tbody>
+						    	{{range $index, $value:=.cart}}
+							      <tr>
+							        <td class="text-center"> {{ .title }}</td>
+							        <td class="text-center"> {{ .price }}</td>
+							        <td class="text-center"> {{ .qty }}</td>
+							        <td class="text-center"> {{ .cost }}</td>
+							        <td class="text-center"> <img style="height: 40px;width: 40px;"src="{{ .image }}" alt=""></td>
+							        <td class="text-center"> {{ .date_format }}</td>
+							        <td class="text-center"><i class="fa fa-times text-danger" aria-hidden="true" style="cursor:pointer;font-size: 25px;" onclick="remove_from_cart({{ .cart_id }},this)"></i></td>
+							      </tr>
+						      	{{end}}
+						    </tbody>
+						  </table>
+					</div>
+			    </div>
+			</div>
+					
+        </div>
+      </div>
+	</div>
+</div>
+{{end}}
+{{template "../orders/scripts.tpl" .}}

@@ -1,0 +1,42 @@
+{{template "layouts/prelogin.html" .}}
+{{define "head"}}
+<title>welcome</title>
+<link href="/static/css/home.css" rel="stylesheet" />
+{{end}}
+{{define "body"}}
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="row">
+				<div class="col-xs-12">
+				<form name="feedback" method="post" action="/login" class="form-horizontal">
+					<input type="hidden" name="redirect" value="">
+	          		<fieldset>
+	          			<div id="legend">
+					      <legend class="">Login <span class="pull-right"><a href="/signup">Signup</a></span></legend>
+					    </div>{{ .post.title }}
+						<div class="form-group">
+			              <label class="col-sm-3 col-sm-offset-2 control-label" for="username">Email</label>
+			              <div class="col-sm-3">
+			                <input id="email" name="email" type="text" placeholder="" class="input-sm form-control">
+			              </div>
+			            </div>
+			            <div class="form-group">
+			              <label class="col-sm-3 col-sm-offset-2 control-label" for="password">Password: </label>
+			              <div class="col-sm-3">
+			                <input id="password" name="password" type="password" placeholder="" class="input-sm form-control">
+			              </div>
+			            </div>
+			            <div class="form-group">
+			              <div class="col-sm-7 col-sm-offset-5">
+			                <button id="btn" type="submit" class="btn_custom btn">Login</button>
+			              </div>
+			            </div>
+					</fieldset>
+				</form>	
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+{{end}}
