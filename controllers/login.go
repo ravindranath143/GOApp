@@ -6,8 +6,8 @@ import (
 	"github.com/astaxie/beego/orm"
 	"GOApp/models"
 	"GOApp/utils"
-	"sms-package/sms"
-	"encoding/json"
+	// "sms-package/sms"
+	// "encoding/json"
 	// "net/http"
 	// "io/ioutil"
  //    "os"
@@ -29,11 +29,11 @@ type jsonobject struct {
     Object post
 }
 func (c *LoginController) LoginView() {
-	response := sms.Sendsms("https://jsonplaceholder.typicode.com/posts/1")
-	fmt.Println(response)
-	var data map[string]interface{}
-	_ = json.Unmarshal([]byte(response), &data)
-	c.Data["post"] = data
+	// response := sms.Sendsms("https://jsonplaceholder.typicode.com/posts/1")
+	// fmt.Println(response)
+	// var data map[string]interface{}
+	// _ = json.Unmarshal([]byte(response), &data)
+	// c.Data["post"] = data
 	v := c.GetSession(sessionName)
     if v != nil {
         c.Redirect("/", 302)
